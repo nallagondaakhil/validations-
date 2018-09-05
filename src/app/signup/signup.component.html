@@ -1,0 +1,26 @@
+<div class="container">
+  <form [formGroup]="register" (ngSubmit)="submit()">
+    <h1>Signup Form</h1>
+
+    <label for="name">
+      <b>Name</b>
+    </label>
+    <input class="form-control" placeholder="Enter Name" formControlName="firstname">
+    <p *ngIf="register.get('firstname').hasError('required') && register.get('firstname').touched">enter first name.</p>
+
+    <label for="name">
+      <b>Last Name</b>
+    </label>
+    <input class="form-control" placeholder="Enter Name" formControlName="lastname">
+    <p *ngIf="register.get('lastname').hasError('required') && register.get('lastname').touched">enter last name.</p>
+
+
+    <label for="name">
+      <b>Email id:</b>
+    </label>
+    <input class="form-control" placeholder="Enter Email-id" formControlName="emailid">
+    <p *ngIf="register.get('emailid').hasError('required') && register.get('emailid').touched">enter valid email-id</p>
+
+   <button style="margin-top:10px;" [disabled]="register.invalid"  class="btn btn-success"><a href="login"> Submit </a></button>
+  </form>
+</div>
